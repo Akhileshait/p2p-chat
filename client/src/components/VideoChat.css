@@ -1,0 +1,274 @@
+.video-chat-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.video-chat-layout {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 140px); /* Adjust for header and footer */
+  width: 80%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.video-section {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-section {
+  flex: 1.5;
+  min-width: 350px;
+  max-width: 600px;
+  height: 100%;
+}
+
+.video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Fix for proper video grid distribution */
+.video-grid > .video-item {
+  flex: 1;
+}
+
+.video-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #2d3436;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: calc(50% - 8px); /* Fixed height calculation for equal distribution */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper to maintain aspect ratio */
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d3436;
+}
+
+.video-placeholder i {
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.connecting-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.video-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin-right: 15px;
+  width: 150px;
+  align-items: center;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mute-btn {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.video-btn {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.skip-btn {
+  background-color: #f39c12;
+  color: white;
+}
+
+.end-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .video-chat-layout {
+    padding: 0 5px;
+  }
+  
+  .chat-section {
+    min-width: 320px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .video-chat-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 150px);
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .video-section {
+    flex-direction: column;
+    height: auto;
+    max-height: 600px;
+    width: 100%;
+    overflow: visible;
+  }
+  
+  .video-grid {
+    height: auto;
+    max-height: 520px;
+  }
+  
+  .video-item {
+    height: 220px;
+  }
+  
+  .chat-section {
+    width: 100%;
+    height: 400px;
+    min-width: 0;
+    max-width: 100%;
+    margin-top: 15px;
+  }
+  
+  .controls {
+    flex-direction: row;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 15px;
+    padding: 10px;
+    max-height: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-chat-layout {
+    padding: 0;
+    gap: 10px;
+  }
+  
+  .video-section {
+    max-height: 500px;
+  }
+  
+  .video-grid {
+    gap: 10px;
+    max-height: 430px;
+  }
+  
+  .video-item {
+    height: 200px;
+  }
+  
+  .controls {
+    padding: 8px 5px;
+    margin-top: 10px;
+    max-height: 60px;
+  }
+  
+  .control-btn {
+    flex: 1;
+    min-width: 90px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+  
+  .control-btn i {
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+  
+  .chat-section {
+    height: 350px;
+  }
+} 
