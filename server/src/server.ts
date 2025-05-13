@@ -79,6 +79,8 @@ io.on('connection', (socket) => {
   // Handle ICE candidates
   socket.on('ice-candidate', ({ targetId, candidate }) => {
     if (activeUsers[targetId]) {
+      console.log(`ICE candidate from ${socket.id} to ${targetId}`);
+      
       // Forward the ICE candidate to the target user
       io.to(targetId).emit('ice-candidate', {
         from: socket.id,
